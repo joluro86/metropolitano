@@ -27,13 +27,7 @@ urlpatterns = [
     path('comparativo/', include('perseovsfenix.urls')),
     path('analisis/', include('Analisis_acta.urls')),
     path('programar/', include('Programacion.urls')),
-
-    # aqui  gestionar_acta_perseo_inventario
-
-    path('gestionbd/', gestionar_bd_mat, name="gestionbdmat"),
-    path('reiniciar/', reiniciar, name="reiniciar"),
-    path('faltantes_fenix/', calculo_faltantes_perseo, name="faltantesenperseo"),
-
+    
 ] +static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
 
 

@@ -3,6 +3,10 @@ from gestionvencimientos.models import *
 from import_export.admin import ImportExportModelAdmin 
 from import_export import resources
 
+class SubzonaResource(resources.ModelResource):
+    class Meta:
+        model = Subzona
+
 class EncargadoResource(resources.ModelResource):
     class Meta:
         model = Encargado
@@ -34,6 +38,11 @@ class EncargadoAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     class Meta:
         model = Encargado
 
+class SubzonaAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = ('id','nombre',)
+    class Meta:
+        model = Subzona
+
 class ActividadAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('nombre','encargado','dias_urbano', 'dias_rural')
     class Meta:
@@ -59,6 +68,7 @@ class MatPerseoAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 class FaltantePerseoAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('concatenacion', 'pedido', 'actividad', 'fecha', 'codigo', 'cantidad', 'acta','cantidad_fenix','diferencia')
 
+admin.site.register(Subzona, SubzonaAdmin)
 admin.site.register(Guia, GuiaAdmin)
 admin.site.register(Ans, AnsAdmin)
 admin.site.register(Encargado, EncargadoAdmin)

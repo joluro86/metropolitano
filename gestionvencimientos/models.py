@@ -130,3 +130,14 @@ class Guia(models.Model):
 
     def __str__(self):
         return str(self.nombre_perseo)
+
+class Subzona(models.Model):
+    nombre = models.CharField(verbose_name='Subzona', max_length=100)
+    
+    class Meta:
+        verbose_name = 'Subzona'
+        verbose_name_plural = 'Subzona'
+
+    def __str__(self):
+        return str(self.nombre)
+
